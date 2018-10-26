@@ -1,3 +1,26 @@
+<?php
+require("../scripts/Database.php");
+include "../scripts/parseCategoricalData.php";
+//$sql = "SELECT *, (sum(`fatigue`)*1+sum(`headache`)*1+sum(`infection`)*0+sum(`abdominal_pain`)*1+sum(`abdominal_pain`)*0)/(3*(power(sum(`fatigue`),2)+power(sum(`headache`),2)+power(sum(`infection`),2)+power(sum(`abdominal_pain`),2)+power(sum(`abdominal_pain`),2)))  as s froM `appointments` Group by `doctor_id` order by s desc";
+$sq = "";
+$count = 0;
+foreach($_GET as $key => $val){
+  $sq .= "sum(`".$key."`)+";
+  $count++;
+}
+$sq .= $sq."0";
+$sql = "SELECT doctors.*, (". $sq .")/sqrt(".$count."
+*(power(sum(`body_pain`),2)+power(sum(`fatigue`),2)+power(sum(`headache`),2)+power(sum(`infection`),2)
++power(sum(`nausea`),2)+power(sum(`common_cold`),2)+power(sum(`dizziness`),2)+power(sum(`diarrhea`),2)
++power(sum(`constipation`),2)+power(sum(`hypertension`),2)+power(sum(`fever`),2)+power(sum(`cough`),2)
++power(sum(`stress`),2)+power(sum(`perspiration`),2)+power(sum(`migraine`),2)+power(sum(`bloating`),2)
++power(sum(`anorxeia`),2)+power(sum(`muscle_pain`),2)+power(sum(`arthritis`),2)+power(sum(`joint_pain`),2)
++power(sum(`hair_loss`),2)+power(sum(`irritation_in_eyes`),2)+power(sum(`abdominal_pain`),2)+power(sum(`anxiety`),2)))
+as s FROM `appointments` , `doctors`  where appointments.doctor_id = doctors.id Group by `doctor_id` order by s desc limit 10";
+$db = new Database;
+$res = $db->resultset($sql);
+//print_r( $res);
+?>
 <html lang="en" class="">
 <head>
   <title>DocRec: Recommendations</title>
@@ -40,16 +63,12 @@
   <p>Recommendations based on the following symptoms:</p>
   <p style = "color: crimson;">nausea, vomiting, abdominal pain</p>
   <div class = "col-md-12">
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-    <button class = "col-md-1 num">1</button><button class = "col-md-10">Shivangi Singh (Dermatology), Patna</button><button class = "col-md-1 map-marker"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+    <?php
+      $i = 1;
+      foreach($res as $each){
+        echo '<button class = "col-md-1 num">'.$i++.'</button><button class = "col-md-10" onclick = "window.location.href = \'./profile.php?q='.$each["id"].'\'">'.$each["first_name"].' '.$each["middle_name"].' '.$each["last_name"].' ('.$spec[$each["specialization"]].'), '.$each["work_place"].'</button><button class = "col-md-1 map-marker" onclick = "window.location.href = \'./showMap.php?lat='.$each["latitude"].'&lon='.$each["longitude"].'\'"><i class="fa fa-map-marker" aria-hidden="true"></i></button>';
+      }
+    ?>
   </div>
   <button id = "prev" class = "col-md-3 nav-btn">< Previous</button><button id = "next" class = "col-md-3 nav-btn">Next ></button>
 </body>
