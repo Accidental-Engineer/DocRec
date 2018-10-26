@@ -1,4 +1,11 @@
 <?php
-  print_r($_POST);
+  require("../scripts/Database.php");
+  $sql = "UPDATE `appointments` SET ";
+  foreach($_POST as $key => $val){
+    $sql = $sql."`".$key."` = '".$val."', ";
+  }
+  $sql = $sql."`appointment_id` = '".$_POST["appointment_id"]."'";
+  $sql = $sql." WHERE `appointment_id` = '".$_POST["appointment_id"]."'";
+  $db = new Database;
+  $db->execute($sql);
 ?>
-UPDATE `appointments` SET `id`=[value-1],`appointment_id`=[value-2],`doctor_id`=[value-3],`patient_fullname`=[value-4],`dob`=[value-5],`mobile`=[value-6],`email`=[value-7],`address`=[value-8],`body_pain`=[value-9],`fatigue`=[value-10],`headache`=[value-11],`infection`=[value-12],`abdominal_pain`=[value-13],`anxiety`=[value-14],`nausea`=[value-15],`common_cold`=[value-16],`dizziness`=[value-17],`diarrhea`=[value-18],`constipation`=[value-19],`hypertension`=[value-20],`fever`=[value-21],`cough`=[value-22],`stress`=[value-23],`perspiration`=[value-24],`migraine`=[value-25],`anorxeia`=[value-26],`bloating`=[value-27],`muscle_pain`=[value-28],`arthritis`=[value-29],`joint_pain`=[value-30],`hair_loss`=[value-31],`irritation_in_eyes`=[value-32],`problem`=[value-33],`descr_title`=[value-34],`descr_content`=[value-35],`date_of_entry`=[value-36] WHERE 1

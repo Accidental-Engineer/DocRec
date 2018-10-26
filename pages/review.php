@@ -101,7 +101,7 @@
           <?php
             foreach ($app[0] as $key => $value) {
               if($value != 6) continue;
-              echo $key.": "; ?>$("input[name=<?php echo "'".$key."'";?>]").val(), <?php
+              echo $key.": "; ?>$("input[name=<?php echo "'".$key."'";?>]:checked").val(), <?php
             }
           ?>
           descr_title: $("input.rev-field").val(),
@@ -110,24 +110,8 @@
       },
       function(data, status){
           if(status == "success"){
-            console.log(data);}
-      //       if(data[0] != '#'){
-      //         $(".alert-box").fadeToggle("slow").html('<center>Your have booked an appointment. Kindly keep the appointment number safe. Your appointment number is ' + data + '.<br><br><input class = "alert-input" type = "button" value = "Home" style = "width: 100%;"/></center>');
-      //         $("form").toggleClass("blur");
-      //       }
-      //       else{
-      //         $(".alert-box").fadeToggle("slow").html('<center>Kindly fill the form properly.<br><br><input class = "alert-input" type = "button" value = "OK" style = "width: 100%;"/></center>');
-      //         $("form").toggleClass("blur");                }
-      //       $("input[value='Home']").on("click", function(){
-      //         window.location.href = "../index.php";
-      //       });
-      //       $("input[value='OK']").on("click", function(){
-      //         $(".alert-box").fadeToggle("slow");
-      //         $("form").toggleClass("blur");
-      //       });
-      //     }else{
-      //       $(".alert-box").fadeToggle("slow").html('<center>The process cannot be completed right now due to some technical issues. Please try after some time.<input class = "alert-input" type = "button" value = "OK" style = "width: 100%;"/></center>');
-      //       $("form").toggleClass("blur");              }
+            console.log(data);
+          }
        });
     });
   });

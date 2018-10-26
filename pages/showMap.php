@@ -18,7 +18,7 @@
   <div id = "main-content-B">
     <center><div id="google_map" class = "col-md-8 col-sm-10 col-xs-12" style="height:400px;"></div></center>
   </div>
-  <script src="http://maps.google.com/maps/api/js?key=AIzaSyD-ozRVmuytiOjhCfyvLXl4A63xLHQ7IQk" type="text/javascript"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyBS5goUdSV7zTRmXa-aeOwHlFH3FLi5b9w" type="text/javascript"></script>
   <script type="text/javascript">
     var locations = [
       ['Ranjit Damodar Deshmukh', 25.6205, 85.1581, 1],
