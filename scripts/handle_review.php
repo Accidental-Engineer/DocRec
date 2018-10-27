@@ -7,5 +7,6 @@
   $sql = $sql."`appointment_id` = '".$_POST["appointment_id"]."'";
   $sql = $sql." WHERE `appointment_id` = '".$_POST["appointment_id"]."'";
   $db = new Database;
+  echo $sql;
   $db->execute($sql);
 ?>

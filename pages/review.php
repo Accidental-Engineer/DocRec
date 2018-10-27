@@ -115,7 +115,8 @@
       },
       function(data, status){
           if(status == "success"){
-            console.log(data);
+            //console.log(data);
+            window.location.href = '../index.php';
           }
        });
     });
