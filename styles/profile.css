@@ -1,5 +1,5 @@
 .social-icons{
-  border-top: 5px solid #1abc9c;
+  border-top: 5px solid #adc3ea;
   padding: 10px;
   width: 200px;
   border-bottom-left-radius: 8px;
@@ -10,7 +10,7 @@
   display: block;
 }
 .social-icons i{
-  color: #1abc9c;
+  color: #adc3ea;
   margin: 5px;
   padding: 5px;
   background: white;
@@ -41,7 +41,7 @@
   padding: 15px;
 }
 .profile-pic-container img{
-  border: 5px solid #1abc9c;
+  border: 5px solid #adc3ea;
   height: 150px;
   width: 150px;
   border-radius: 75px;
@@ -60,7 +60,7 @@
 .bar{
   width: 30%;
   height: 1px;
-  background: #1abc9c;
+  background: #adc3ea;
   margin-left: auto;
   margin-right: auto;
   display: block;

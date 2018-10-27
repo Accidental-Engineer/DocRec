@@ -59,6 +59,9 @@ $res = $db->resultset($sql);
 </head>
 
 <body>
+  <div class="slots">
+
+  </div>
   <a href = "../index.php" style = "text-decoration: none;"><h1>DocRec</h1></a>
   <h2>Search a doctor</h2>
   <p>Recommendations based on the following symptoms:</p>

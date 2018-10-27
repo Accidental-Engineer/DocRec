@@ -22,21 +22,26 @@
       border: 1px solid white;
       padding: 8px;
       margin-top: 2px;
-      background: #69db7c;
+      background: #7e95c2;
       color: white;
     }
     #submit-btn{
       /* border: 5px solid white; */
-      background: #16a085;
+      background: #3c4f73;
       margin-top: 15px;
       width: 100%;
       height: 50px;
+    }
+    #submit-btn:hover{
+      color: white;
+      background: #203763;
     }
     label:hover:before{
       border: none !important;
     }
     .rev-field{
-      width: 100%; background: #69db7c;  border: none; border-radius: 3px; padding: 5px;
+      color:white;
+      width: 100%; background: #7e95c2;  border: none; border-radius: 3px; padding: 5px;
     }
     .rev-field::-webkit-input-placeholder{
       color: rgba(255, 255, 255, 0.4);

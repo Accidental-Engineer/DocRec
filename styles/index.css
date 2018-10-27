@@ -6,15 +6,15 @@ body {
   font-size: 14px;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 3em;
   color: #666666;
 }
 h2, a {
-  font-size: 0.8em;
+  font-size: 1em;
   color: #9BC788;
 }
 a.result-option{
-  color: white;
+  color: #555;
   text-decoration: none;
 }
 h3 {
@@ -29,14 +29,14 @@ h3 {
 /* ============================ */
 .search-container {
   margin: 40px auto;
-  background: #16a085;
+  background: #7e95c2;
   padding:20px;
 }
 .search-box {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background-color: #1abc9c;
+  background-color: #fff;
   height: 40px;
   position: relative;
 }
@@ -58,7 +58,7 @@ h3 {
   height: 40px;
   float: left;
   width: calc(100% - 40px);
-  color: white;
+  color: #777;
   background-color: transparent;
   border: 0px;
   padding: 10px;
@@ -120,15 +120,16 @@ h3 {
   box-sizing: border-box;
   padding: 10px;
   height: 40px;
-  background-color: rgba(22, 119, 103, 0.8); /* #8ed294; /* #a8b178 */
+  background-color: rgba(126, 163, 194, 0.8); /* #8ed294; /* #a8b178 */
   color: white;
   font-weight: bold;
   /* ANIMATION */
   /* remove this part if you dont like the animation */
   /* END OF ANIMATION */
 }
-.search-results li:hover {
-  background-color: rgba(22, 119, 103, 1);
+.search-results li:hover,.search-results li:hover a {
+  background-color: rgb(7, 42, 90);
+  color:white;
   cursor: pointer;
 }
 .search-results li:nth-child(1) {
@@ -175,7 +176,7 @@ h3 {
 }
 .se-btn{
       border: 2px solid white;
-      background: #16a085;
+      background:rgba(85, 116, 175, 0.76);
       padding: 15px;
       color: white;
       text-transform: uppercase;
@@ -188,14 +189,28 @@ h3 {
 }
 .loc-btn{
   border: 2px solid white;
-  background: #1abc9c;
+  background: rgba(80, 93, 119, 0.91);
   padding: 15px;
   color: white;
   text-transform: uppercase;
   font-size: 75%;
   display: none;
 }
+.submit{
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #7e95c2;
+  margin: 20px;
+  margin-bottom: 10px;
 
+}
+.submit:hover{
+  background: #203763;
+}
 /*Checkboxes */
 
 /* Base for label styling */
@@ -274,4 +289,48 @@ label:hover:before {
 #main-content-C{
   display: none;
   padding-left: 15px;
+}
+.slots{
+  position: absolute;
+  top: 0px;
+  width:100%;
+  height: 100%;
+  z-index: 1111;
+  background: rgba(25, 36, 58, 0.79);
+}
+.slot{
+  width: 50%;
+  height: 400px;
+  background: white;
+    border-radius: 5px;
+  margin-top: calc(50vh - 200px);
+}
+
+.slot_but{
+  border-radius: 7px;
+  padding: 7px 20px;
+  border: 2px solid green;
+  background: white;
+  margin: 10px 10px;
+}
+.slot_but:hover{
+    background: #adc3ea;
+    border: 2px solid #adc3ea;
+}
+.slot_but:focus{
+    outline: none;
+}
+.slot_con{
+  border-radius: 7px;
+  border: none;
+  padding: 7px 20px;
+  background: #adc3ea;
+  margin: 10px 10px;
+}
+.slot_con:hover{
+  background: #203763;
+  color: white;
+}
+.slot_con:focus{
+    outline: none;
 }

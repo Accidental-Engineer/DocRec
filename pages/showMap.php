@@ -1,6 +1,10 @@
 <?php
+require("../scripts/Database.php");
   $lat = $_GET["lat"];
   $lon = $_GET["lon"];
+  $sql = "SELECT * FROM doctors WHERE sqrt(power(`latitude`-$lat,2)+power(`longitude`-$lon,2)) < 0.25 ";
+  $db = new Database;
+  $res = $db->resultset($sql);
 ?>
 <html>
 <head>
@@ -16,18 +20,20 @@
   <a href = "../index.php" style = "text-decoration: none;"><h1>DocRec</h1></a>
   <h2>Search a doctor</h2>
   <div id = "main-content-B">
-    <center><div id="google_map" class = "col-md-8 col-sm-10 col-xs-12" style="height:400px;"></div></center>
+    <center><div id="google_map" class = "col-md-8 col-sm-10 col-xs-12" style="height:600px;"></div></center>
   </div>
   <script src="http://maps.google.com/maps/api/js?key=AIzaSyBS5goUdSV7zTRmXa-aeOwHlFH3FLi5b9w" type="text/javascript"></script>
   <script type="text/javascript">
     var locations = [
-      ['Ranjit Damodar Deshmukh', 25.6205, 85.1581, 1],
-      ['Ruchika Prasad Singh', 25.6009, 85.1983, 2],
-      ['Suman Rajshree Pandey', 25.621, 85.1229, 3]
+      <?php
+        foreach($res as $row){
+          echo "['".$row["first_name"]." ".$row["middle_name"]." ".$row["last_name"]."', ".$row["latitude"].", ".$row["longitude"].", ".$row["id"]."], ";
+        }
+       ?>
     ];
 
     var map = new google.maps.Map(document.getElementById('google_map'), {
-      zoom: 10,
+      zoom: 13,
       center: new google.maps.LatLng(<?php echo $lat; ?>, <?php echo $lon; ?>),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });

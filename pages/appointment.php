@@ -33,7 +33,7 @@ if(!$res){
         form section {
           width: calc(50% - 40px);
           padding: 20px;
-          background: #16a085;
+          background: rgba(85, 117, 175, 0.76);
           margin: 20px;
           border-radius: 5px;
         }
@@ -49,10 +49,13 @@ if(!$res){
         form section .input-container label {
           display: block;
           margin-bottom: 4px;
-          color: white;
+          color: #555;
           font-size: 16px;
-          text-shadow: 0px 2px 1px #65ad6b;
+          /* text-shadow: 0px 2px 1px #65ad6b; */
           font-family: 'Quicksand', sans-serif;
+        }
+        form section .input-container label:active{
+          color: white;
         }
         form section .input-container input,
         form section .input-container textarea {
@@ -61,7 +64,7 @@ if(!$res){
           height: 40px;
           border-radius: 5px;
           border: none;
-          background: rgba(26, 188, 156, 0.5);
+          /* background: rgba(26, 188, 156, 0.5); */
           font-family: 'Quicksand', sans-serif;
           font-size: 16px;
           color: #757575;
@@ -108,17 +111,18 @@ if(!$res){
           font-weight: normal !important;
         }
         .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
-          background-color: #16a085 !important;
+          background-color: #7e95c2 !important;
+          color: white;
         }
         /* Drop-down menu starts here */
         ul.multiselect-container{
           width: 100%;
-          background-color: #1abc9c;
+          background-color: rgb(255, 255, 255);
         }
         label.checkbox {
           color: black !important;
           font-size: 14px !important;
-          text-shadow: 0 0 1px white !important;
+          /* text-shadow: 0 0 1px white !important; */
           font-family: 'Arial' !important;
         }
         div.btn-group{
@@ -127,10 +131,10 @@ if(!$res){
         button.multiselect{
           width: 100%;
           color: gray;
-          background-color: #1abc9c;
+          /* background-color: #1abc9c; */
         }
         input[type="button"].submitBtn{
-          background: #1abc9c !important;
+          background: #203763 !important;
           color: white !important;
           margin-top: 20px !important;
           height: 55px !important;
@@ -150,7 +154,7 @@ if(!$res){
           top: calc(50% - 100px);
           left: calc(50% - 200px);
           padding: 20px;
-          background: #16a085; /* #1abc9c */
+          background: #203763; /* #1abc9c */
           z-index: 999;
           color: white;
         }
@@ -162,7 +166,7 @@ if(!$res){
         }
         input[type="button"].alert-input{
           color: white;
-          background: #1abc9c;
+          background: #7e95c2;
           cursor: pointer;
         }
         .blur{
@@ -216,14 +220,41 @@ if(!$res){
                 $("form").toggleClass("blur");              }
           });
         });
+
       });
+      function active(e){
+        $(".slot_but").css({"background":"white","color":"#555"});
+        $(e).css({"background":"#203763","color":"white"});
+
+      }
+      function ok(e){
+
+        $(".slots").css({"display":"none"});
+
+      }
     </script>
 </head>
 <body>
+  <div class="slots">
+    <center> <div class="slot">
+      <h3 style="padding: 20px;">Book A Slot</h3>
+      <button onclick="active(this)" class="slot_but" type="button" name="button">9:00AM</button>
+      <button onclick="active(this)"class="slot_but" type="button" name="button">9:10AM</button>
+      <button onclick="active(this)"class="slot_but" type="button" name="button">9:20AM</button>
+      <button onclick="active(this)" class="slot_but" type="button" name="button">9:30AM</button>
+      <button onclick="active(this)" class="slot_but" type="button" name="button">9:40AM</button>
+      <button onclick="active(this)"class="slot_but" type="button" name="button">9:50AM</button>
+      <button onclick="active(this)"class="slot_but" type="button" name="button">10:00AM</button>
+      <button onclick="active(this)" class="slot_but" type="button" name="button">10:10AM</button>
+
+      <br><br><br><br><br>
+        <button onclick="ok(this)" class="slot_con" type="button" name="button">Confirm</button>
+    </div> <center>
+  </div>
   <a href = "../index.php" style = "text-decoration: none;"><h1>DocRec</h1></a>
   <h2>Search a doctor</h2>
     <center>
-      <div style = "background: #16a085; border-radius: 3px; margin-bottom: 5px; padding: 6px; width: 90%; color: white; text-shadow: 0 0 2px black;">
+      <div style = "background: rgba(85, 117, 175, 0.76); border-radius: 3px; margin-bottom: 5px; padding: 6px; width: 78%; color: white;">
       Book an appointment with <?php echo $res[0]["first_name"]." ".$res[0]["middle_name"]." ".$res[0]["last_name"]." (".$spec[$res[0]["specialization"]].")"; ?>
       </div>
     </center>

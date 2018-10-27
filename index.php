@@ -28,7 +28,7 @@
 </div>
 
 <div id = "main-content-B" style = "display: none;">
-  <center><div id="google_map" class = "col-md-8 col-sm-10 col-xs-12" style="height:400px;"></div></center>
+  <center><div id="google_map" class = "col-md-8 col-sm-10 col-xs-12" style="height:600px;"></div></center>
 </div>
 
 <div id = "main-content-C">
@@ -41,17 +41,17 @@
       echo '<label for = "test'.$i.'" class = "col-md-2 col-sm-3 col-xs-5"/>'.$val.'</label>'; $i += 1;
     }
     ?>
-    <br><br><br><input type = "submit" class = "col-md-4 col-sm-6 col-xs-8" style = "color: white; border: none; border-radius: 5px; padding: 10px; background: #1abc9c; margin-bottom: 10px;"/>
+    <br><br><br><input class="submit" type = "submit" class = "col-md-4 col-sm-6 col-xs-8" style = ""/>
   </form>
 </div>
 
 <script>
   function initMap() {
-    var myLatlng = {lat: -25.363, lng: 131.044};
+    var myLatlng = {lat: 22.9734, lng: 78.6569};
     var marker = null;
     var REQUIRED_ZOOM = 15;
     var map = new google.maps.Map(document.getElementById('google_map'), {
-      zoom: 4,
+      zoom: 5,
       center: myLatlng
     });
 

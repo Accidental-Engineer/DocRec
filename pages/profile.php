@@ -41,7 +41,7 @@ if(!$res){
       left: calc(50% - 200px);
       padding-top: 10px;
       padding-bottom: 10px;
-      background: #16a085; /* #1abc9c */
+      background: #7e95c2; /* #1abc9c */
       z-index: 999;
       color: white;
     }
@@ -53,7 +53,7 @@ if(!$res){
     }
     input[type="button"].alert-input{
       color: white;
-      background: #1abc9c;
+      background: #203763;
       cursor: pointer;
     }
     .blur{
@@ -101,23 +101,23 @@ if(!$res){
 <div class="container" style = "/*position: absolute; top: 75px;*/ min-width: 100%; background: #ecf0f1; min-height: 500px;">
   <div class = "row">
     <div class = "col-md-3 col-sm-4 col-xs-12" >
-      <div class = "social-icons" style= "background: #16a085;"><i class = "fa fa-facebook"></i><i class = "fa fa-google-plus"></i><i class = "fa fa-twitter"></i></div>
-      <div class = "profile-pic-container" style = ""><img src = <?php echo "'../upload/".$res[0]['id'].".jpg'"; ?>></div>
+      <div class = "social-icons" style= "background: rgba(85, 117, 175, 0.76);"><i class = "fa fa-facebook"></i><i class = "fa fa-google-plus"></i><i class = "fa fa-twitter"></i></div>
+      <div class = "profile-pic-container" style = ""><img src = "../upload/pro.png"></div>
       <div class = "profile-name"><?php echo $res[0]["first_name"]." ".$res[0]["middle_name"]." ".$res[0]["last_name"]; ?></div>
       <hr class = "bar">
       <div class = "profile-designation"><?php echo $spec[$res[0]["specialization"]]; ?></div>
       <!-- <div class = "utility-icons"><i class = "fa fa-upload"></i><i class = "fa fa-flag"></i><i class = "fa fa-eye"></i></div> -->
       <hr class = "bar">
 
-      <center><button style = "color: white; border: none; border-radius: 5px; width: 80%; padding: 10px; background: #1abc9c; margin-bottom: 10px;" onclick = "window.location.href = <?php echo "'./appointment.php?q=".$res[0]["id"]."'"; ?>">Book An Appointment</button></center>
-      <center><button style = "color: white; border: none; border-radius: 5px; width: 80%; padding: 10px; background: #1abc9c; margin-bottom: 10px;" id = "rev-btn">Review This Doctor</button></center>
+      <center><button style = "color: white; border: none; border-radius: 5px; width: 80%; padding: 10px; background: rgba(85, 117, 175, 0.76);; margin-bottom: 10px;" onclick = "window.location.href = <?php echo "'./appointment.php?q=".$res[0]["id"]."'"; ?>">Book An Appointment</button></center>
+      <center><button style = "color: white; border: none; border-radius: 5px; width: 80%; padding: 10px; background: rgba(85, 117, 175, 0.76);; margin-bottom: 10px;" id = "rev-btn">Review This Doctor</button></center>
 
     </div>
     <div class = "col-md-9 col-sm-8 col-xs-12">
-      <div style = "width: 91%; margin-left: 2%; margin-right: 7%; border-top: 5px solid #1abc9c;">
+      <div style = "width: 91%; margin-left: 2%; margin-right: 7%; border-top: 5px solid #adc3ea;">
           <div style = "min-width: 100%; padding-top: 15px; padding-bottom: 15px;"><a href = "#" class = "prolink">Profile</a><a href = "#" class = "prolink">Reviews</a><a href = "#" class = "prolink">Contact</a></div>
           <div style = "text-align: right; font-size: 130%; letter-spacing: 2px;">PROFILE</span>&nbsp;&nbsp;<i class = "fa fa-user-circle" aria-hidden = "true"></i></div>
-          <div class = "profile-info container" style = "background: #fbfbfb;">
+          <div class = "profile-info container" style = "background: #fbfbfb;    max-width: 100%;">
             <div class = "row">
               <div class = "col-md-6 col-xs-12" style = "text-align: center; border-right: 2px solid #ecf0f1; padding: 15px;">
                 <h5><i class = "fa fa-user-circle"></i>&nbsp;&nbsp;Basic Information</h5>
